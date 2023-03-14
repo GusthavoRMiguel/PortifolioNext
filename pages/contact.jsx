@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import Aside from './components/aside'
-import PageName from './components/pageName'
+import Aside from '../components/aside'
+import PageName from '../components/pageName'
 
 function Contact() {
   return (
