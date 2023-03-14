@@ -45,7 +45,7 @@ function Contact() {
                   <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                   </svg>
-                    <div className="ml-4 text-md tracking-wide font-semibold w-40 max-w-screen-sm:break-all ">
+                    <div className="ml-4 text-md tracking-wide font-semibold w-40 break-all sm:break-normal">
                         gusthavo.rmiguel@gmail.com
                     </div>
                 </div>               
