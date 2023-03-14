@@ -3,7 +3,7 @@ import Aside from './components/aside'
 import Language from './components/progressBar'
 import PageName from './components/pageName'
 import Personal from './components/personal'
-import { Timeline } from './components/timeline'
+import  Timeline  from './components/timeline'
 
 function About() {
   return (
