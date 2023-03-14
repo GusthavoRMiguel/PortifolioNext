@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import React, { useEffect, useState } from "react";
-import api from './services/api';
+import api from './api/api';
 import Aside from './components/aside'
 
 
