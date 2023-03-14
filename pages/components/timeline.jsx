@@ -1,4 +1,4 @@
-export function Timeline(props) {
+export default function Timeline(props) {
   return(
     <li className="mb-2">
       <div className="flex items-center mb-1">
