@@ -16,11 +16,11 @@ function Projects() {
       <div className='container mx-auto px-8 py-5'>
         <PageName name="Projects" />
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-6'>
+        <Card link="https://mult-flix.vercel.app/" image="/img/image-1.jpg" icon="/img/icons8-kotlin.svg" title="MultiFlix" description="Clone da Netflix feito em HTML com carrossel feito em Javasript"/>
         <Card image="/img/image-1.jpg" icon="/img/icons8-dart.svg" title="Pagina Web utilizando Bootstrap" description="Pagina HTML utilizando bootstrap"/>
-            <Card image="/img/image-1.jpg" icon="/img/icons8-kotlin.svg" title="Clone Netflix" description="Clone da Netflix feito em HTML com carrossel feito em Javasript"/>
-            <Card image="/img/image-1.jpg" icon="/img/icons8-python.svg" title="Site estilizado com Tailwind CSS" description="Projeto de site utilizando HTML/Javascript e estilizacção com Tailwind CSS"/>
-            <Card image="/img/image-1.jpg" icon="/img/icons8-typescript.svg" title="Portifolio usando NextJS" description="Pagina de portifolio utilizando nextjs e jsx."/>
-            <Card image="/img/image-1.jpg" icon="/img/icons8-typescript.svg" title="Portifolio usando Angular" description="Pagina de portifolio utilizando Angular "/>
+        <Card image="/img/image-1.jpg" icon="/img/icons8-python.svg" title="Site estilizado com Tailwind CSS" description="Projeto de site utilizando HTML/Javascript e estilizacção com Tailwind CSS"/>
+        <Card image="/img/image-1.jpg" icon="/img/icons8-typescript.svg" title="Portifolio usando NextJS" description="Pagina de portifolio utilizando nextjs e jsx."/>
+        <Card image="/img/image-1.jpg" icon="/img/icons8-typescript.svg" title="Portifolio usando Angular" description="Pagina de portifolio utilizando Angular "/>
         </div>
       </div>
     </div>

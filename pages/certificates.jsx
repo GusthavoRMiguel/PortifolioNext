@@ -30,7 +30,6 @@ function Certificates() {
             <Card img="/img/certificados/intro-tailwind.jpg" icon="/img/icons8-tailwind.svg" title="Introdução ao Tailwind CSS" description="23/08/2022" />
             <Card img="/img/certificados/js-async.jpg" icon="/img/icons8-javascript.svg" title="Fundamentos de JavaScript AssíncronoClone Netflix" description="05/07/2022" />
             <Card img="/img/certificados/logica-essencial.jpg" icon="/img/icons8-dev.svg" title="Lógica de Programação Essencial" description="25/04/2022" />
-            <Card img="/img/image-1.jpg/" icon="/img/icons8-kotlin.svg" title="Clone Netflix" description="00/00/2022" />
           </div>
         </div>
       </div>
