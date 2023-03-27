@@ -28,7 +28,7 @@ function Certificates() {
             <Card color="bg-indigo-500" status="DIO" img="/img/certificados/intro-html5.jpg" icon="/img/icons8-html.svg" title="Introdução a Criação de Websites com HTML5 e CSS3" description="20/06/2022" />
             <Card color="bg-indigo-500" status="DIO" img="/img/certificados/intro-prog.jpg" icon="/img/icons8-dev.svg" title="Introdução à Programação e Pensamento Computacional" description="07/10/2022" />
             <Card color="bg-indigo-500" status="DIO" img="/img/certificados/intro-tailwind.jpg" icon="/img/icons8-tailwind.svg" title="Introdução ao Tailwind CSS" description="23/08/2022" />
-            <Card color="bg-indigo-500" status="DIO" img="/img/certificados/js-async.jpg" icon="/img/icons8-javascript.svg" title="Fundamentos de JavaScript AssíncronoClone Netflix" description="05/07/2022" />
+            <Card color="bg-indigo-500" status="DIO" img="/img/certificados/js-async.jpg" icon="/img/icons8-javascript.svg" title="Fundamentos de JavaScript Assíncrono" description="05/07/2022" />
             <Card color="bg-indigo-500" status="DIO" img="/img/certificados/logica-essencial.jpg" icon="/img/icons8-dev.svg" title="Lógica de Programação Essencial" description="25/04/2022" />
           </div>
         </div>
