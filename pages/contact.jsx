@@ -4,14 +4,14 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import axios from 'axios';
 import { Col, Row, Form, Button } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
-
+import React from 'react';
 import Aside from '../components/aside'
 import PageName from '../components/pageName'
 
 function Contact() {
   // Initialize our states
   const [isSubmitting, setIsSubmitting] = React.useState(false);
-  const [isSubmitted, setIsSubmitted] = React.useState(false);
+  const [isSubmitted, setIsSubmitted] = React.useState(false); 
 
   // Yup error message overrides
   const errMess = {
@@ -88,8 +88,11 @@ function Contact() {
                 <h1 className="text-4xl sm:text-5xl text-gray-800 dark:text-white font-extrabold tracking-tight">
                 Entrar em contato
                 </h1>
-                <p className="text-normal text-lg sm:text-xl font-medium text-gray-600 dark:text-gray-400 mt-2">
+                <p className="hidden sm:visible text-normal text-lg sm:text-xl font-medium text-gray-600 dark:text-gray-400 mt-2">
                   Preencha o formulário ao lado
+                </p>
+                <p className="visible sm:hidden text-normal text-lg sm:text-xl font-medium text-gray-600 dark:text-gray-400 mt-2">
+                  Preencha o formulário abaixo
                 </p>
                 <div className="flex items-center mt-8 text-gray-600 dark:text-gray-400">
                   <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500">
@@ -203,7 +206,7 @@ function Contact() {
               </Form>
               </>
               :
-              <div className='text-slate-200 font-semibold sm:pt-28'>
+              <div className='text-slate-200 font-semibold p-10 rounded-xl mt-5 sm:mt-0 bg-gray-100 text-center sm:pt-28'>
               <h1>Obrigado !</h1>
               <p> Sua mensagem foi recebida. Verifique seu email para confirmar! </p>
               </div>
