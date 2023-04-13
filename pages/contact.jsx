@@ -1,8 +1,76 @@
 import Head from 'next/head'
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import axios from 'axios';
+import { Col, Row, Form, Button } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
+
 import Aside from '../components/aside'
 import PageName from '../components/pageName'
 
 function Contact() {
+  // Initialize our states
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [isSubmitted, setIsSubmitted] = React.useState(false);
+
+  // Yup error message overrides
+  const errMess = {
+    req: "Por favor, preencha aqui!"
+  };
+
+  // Our Yup Schema for this form
+  const ContactSchema = yup.object().shape({
+    name: yup.string()
+      .label('Nome Completo')
+      .required(errMess.req)
+      .min(3)
+      .max(30),
+    email: yup.string()
+      .label('Endereço de Email')
+      .required(errMess.req)
+      .email('Endereço de email inválido.'),
+    phone: yup.string()
+      .label('Telefone de Contato')    
+      .max(12),
+    message: yup.string()
+      .label('Mensagem')
+      .required(errMess.req)
+      .min(10)
+      .max(1000),
+  });
+
+  // Destruct useForm() and set our Yup schema as the validation resolver
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(ContactSchema)
+  });
+
+  // Send our valid form data to our back-end API
+  const submitForm = async (data) => {
+    setIsSubmitting(true);
+
+    const res = await axios({
+      method: 'POST',
+      url: '/api/contact-form',
+      data: data
+    }).then((res) => {
+      setIsSubmitting(false);
+      return res;
+    }).catch((e) => {
+      alert("Um erro ocorreu. Consulte o registro para obter detalhes.")
+      console.error(e);
+    });
+
+    if (res.data.status === 1) {
+      setIsSubmitted(true);
+    } else {
+      alert(res.data.message);
+    }
+  };
+
   return (
     <div className="flex flex-row min-h-screen overflow-hidden">
     <Head>
@@ -50,30 +118,102 @@ function Contact() {
                     </div>
                 </div>               
               </div>
-              <form className="p-6 flex flex-col justify-center">
-                        <div className="flex flex-col">
-                            <label for="name" className="hidden">Nome Completo</label>
-                            <input type="name" name="name" id="name" placeholder="Nome Completo" className="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none"/>
-                        </div>
 
-                        <div className="flex flex-col mt-2">
-                            <label for="email" className="hidden">Email</label>
-                            <input type="email" name="email" id="email" placeholder="Email" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none"/>
-                        </div>
+              {!isSubmitted ?
+              <>                        
+              <Form
+               onSubmit={handleSubmit((data) => submitForm(data))} 
+               className="p-6 flex flex-col justify-center">
+                  <Row className='flex flex-col'>
+                    <Col className='pt-5'>
+                      <Form.Group
+                       className="mb-3" 
+                       controlId="nameField">
+                      <Form.Label className='hidden'>Nome Completo</Form.Label>
+                      <Form.Control 
+                       className="w-full mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none"
+                       type="text"
+                       placeholder="Nome Completo"
+                       isInvalid={errors.name}
+                       {...register('name')}
+                      />
+                    <Form.Control.Feedback type='invalid'>
+                      {errors.name?.message}
+                    </Form.Control.Feedback>
+                  </Form.Group>
 
-                        <div className="flex flex-col mt-2">
-                            <label for="tel" className="hidden">Celular</label>
-                            <input type="tel" name="tel" id="tel" placeholder="Celular" className="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none" />
-                        </div>
-                        <div className="flex flex-col mt-2">
-                          <label for="message" className="hidden">Message</label>
-                          <textarea type="message" id="message" name="message" placeholder="Message" rows="4" class="w-100 mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none"> </textarea>
-                      </div>
+                    </Col> 
 
-                        <button type="submit" class="md:w-32 bg-indigo-600 hover:bg-blue-dark text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-indigo-500 transition ease-in-out duration-300">
-                            Enviar
-                        </button>
-                    </form> 
+                    <Col>
+                      <Form.Group className="mb-3" controlId="emailField">
+                        <Form.Label className='hidden'>Email</Form.Label>
+                        <Form.Control 
+                          className="w-full mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none"
+                          type="email"
+                          placeholder="email@example.com"
+                          isInvalid={errors.email}
+                          {...register('email')}
+                        />
+                        <Form.Control.Feedback type='invalid'>
+                          {errors.email?.message}
+                        </Form.Control.Feedback>
+                      </Form.Group>
+                    </Col>
+                    
+                    <Col>
+                      <Form.Group className="mb-3" controlId="phoneField">
+                        <Form.Label className='hidden'>Telefone</Form.Label>
+                        <Form.Control 
+                          className="w-full mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none"
+                          type="tel"
+                          placeholder="(XX) 9XXXX-XXXX"
+                          isInvalid={errors.phone}
+                          {...register('phone')}
+                        />
+                        <Form.Control.Feedback type='invalid'>
+                          {errors.phone?.message}
+                        </Form.Control.Feedback>
+                      </Form.Group>
+                    </Col>
+
+                    <Col lg={12}>
+                      <Form.Group className="mb-3" controlId="messageField">
+                        <Form.Label className='hidden'>Message</Form.Label>
+                        <Form.Control 
+                          className="w-full mt-2 py-3 px-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-700 text-gray-800 font-semibold focus:border-indigo-500 focus:outline-none"
+                          as="textarea"
+                          rows={5}
+                          placeholder="Por favor escreva sua mensagem..."
+                          isInvalid={errors.message}
+                          {...register('message')}
+                        />
+                        <Form.Control.Feedback type='invalid'>
+                          {errors.message?.message}
+                        </Form.Control.Feedback>
+                      </Form.Group>
+                    </Col>
+
+                  </Row>
+                  <Row className=' self-center'>
+                  <Button variant="primary" type="submit" disabled={isSubmitting} className="md:w-32 bg-indigo-600 hover:bg-blue-dark text-white font-bold py-3 px-6 rounded-lg mt-3 hover:bg-indigo-500 transition ease-in-out duration-300">
+                  {isSubmitting ? 'Enviando...' : 'Enviar'}
+                  </Button>
+                  </Row>
+                  
+              </Form>
+              </>
+              :
+              <div className='text-slate-200 font-semibold sm:pt-28'>
+              <h1>Obrigado !</h1>
+              <p> Sua mensagem foi recebida. Verifique seu email para confirmar! </p>
+              </div>
+              }
+
+
+
+
+
+              
             </div>
            </div>
         </div>      
