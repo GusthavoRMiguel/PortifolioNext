@@ -23,8 +23,6 @@ function Projects() {
 
         <Card link="https://loja-gusthadev.vercel.app/" image="/img/image-1.jpg" icon="/img/icons8-react.svg" title="Loja NextJS" description="Modelo de loja utilizando nextjs.                                            " color="bg-green-500" status="online" />
 
-        <Card link="#" image="/img/image-1.jpg" icon="/img/icons8-angularjs.svg" title="Portifolio usando Angular" description="Pagina de portifolio utilizando Angular                             " color="bg-red-500"     status="em breve" />
-
         </div>
       </div>
     </div>
