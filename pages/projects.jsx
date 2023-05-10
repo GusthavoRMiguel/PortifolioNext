@@ -19,12 +19,12 @@ function Projects() {
 
         <Card link="https://loja-gusthadev.vercel.app/" image="/img/image-1.jpg" icon="/img/icons8-react.svg" title="Loja NextJS" description="Modelo de loja utilizando Nextjs.                                            " color="bg-green-500" status="online" />
 
-        <Card link="https://ksg-vidros.vercel.app/" image="/img/image-1.jpg" icon="/img/icons8-react.svg" title="Loja NextJS" description="Loja Ksg em Nextjs.                                            " color="bg-green-500" status="online" />
+        <Card link="https://ksg-vidros.vercel.app/" image="/img/image-1.jpg" icon="/img/icons8-react.svg" title="KSG NextJS" description="Loja expositória em Nextjs.                                            " color="bg-green-500" status="online" />
 
 
         <Card link="https://me-gustha-devnext.vercel.app/" image="/img/image-1.jpg" icon="/img/icons8-react.svg" title="Portifolio NextJS" description="Pagina de portifolio utilizando nextjs.                                               " color="bg-green-500" status="online" />
 
-        <Card link="https://loja-gusthadev.vercel.app/" image="/img/image-1.jpg" icon="/img/icons8-react.svg" title="Loja NextJS" description="Modelo de loja utilizando nextjs.                                            " color="bg-green-500" status="online" />
+       
 
         </div>
       </div>
