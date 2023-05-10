@@ -17,7 +17,10 @@ function Projects() {
         <PageName name="Projects" />
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-6'>
 
-        <Card link="https://mult-flix.vercel.app/" image="/img/image-1.jpg" icon="/img/icons8-bootstrap.svg" title="MultiFlix" description="Clone da Netflix com Bootstrap" color="bg-green-500" status="online" />
+        <Card link="https://loja-gusthadev.vercel.app/" image="/img/image-1.jpg" icon="/img/icons8-react.svg" title="Loja NextJS" description="Modelo de loja utilizando Nextjs.                                            " color="bg-green-500" status="online" />
+
+        <Card link="https://ksg-vidros.vercel.app/" image="/img/image-1.jpg" icon="/img/icons8-react.svg" title="Loja NextJS" description="Loja Ksg em Nextjs.                                            " color="bg-green-500" status="online" />
+
 
         <Card link="https://me-gustha-devnext.vercel.app/" image="/img/image-1.jpg" icon="/img/icons8-react.svg" title="Portifolio NextJS" description="Pagina de portifolio utilizando nextjs.                                               " color="bg-green-500" status="online" />
 
